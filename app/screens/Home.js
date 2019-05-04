@@ -4,6 +4,7 @@ import { View, StatusBar } from "react-native";
 import { Container } from "../components/Container";
 import { Logo } from "../components/Logo";
 import { TextInputWithButton } from "../components/TextInput";
+import { ClearButton } from "../components/Buttons";
 
 const TEMP_BASE_CURRENCY = "USD";
 const TEMP_QUOTE_CURRENCY = "GBP";
@@ -20,6 +21,10 @@ class Home extends Component {
 
   handleTextChange = text => {
     console.log("text change: ", text);
+  };
+
+  handleSwapCurrency = () => {
+    console.log("swap currency");
   };
 
   render() {
@@ -39,6 +44,10 @@ class Home extends Component {
           onPress={this.handlePressQuoteCurrency}
           editable={false}
           value={TEMP_QUOTE_PRICE}
+        />
+        <ClearButton
+          text="Reverse Currency"
+          onPress={this.handleSwapCurrency}
         />
       </Container>
     );
