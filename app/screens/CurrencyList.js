@@ -21,6 +21,6 @@ const CurrencyList = () => (
   </View>
 );
 
-const handlePress = () => {};
+handlePress = () => {};
 
 export default CurrencyList;
