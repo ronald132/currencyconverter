@@ -39,8 +39,8 @@ class Home extends Component {
     return (
       <Container>
         <StatusBar translucent={false} barStyle="light-content" />
+        <Header onPress={this.handleOptionPress} />
         <KeyboardAvoidingView behavior="padding">
-          <Header onPress={this.handleOptionPress} />
           <Logo />
           <TextInputWithButton
             buttonText={TEMP_BASE_CURRENCY}
