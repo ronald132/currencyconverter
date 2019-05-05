@@ -1,26 +1,32 @@
-import React from "react";
+import React, { Component } from "react";
 import { Text, FlatList, View, StatusBar } from "react-native";
 import currencies from "../data/currencies";
 import { ListItem, Separator } from "../components/List";
+import PropTypes from "prop-types";
 
-const CurrencyList = () => (
-  <View style={{ flex: 1 }}>
-    <StatusBar barStyle="default" translucent={false} />
-    <FlatList
-      data={currencies}
-      renderItem={({ item }) => (
-        <ListItem
-          text={item}
-          onPress={this.handlePress}
-          selected={item === "USD" ? true : false}
+export default class CurrencyList extends Component {
+  render() {
+    return (
+      <View style={{ flex: 1 }}>
+        <StatusBar barStyle="default" translucent={false} />
+        <FlatList
+          data={currencies}
+          renderItem={({ item }) => (
+            <ListItem
+              text={item}
+              onPress={this.handlePress}
+              selected={item === "USD" ? true : false}
+            />
+          )}
+          keyExtractor={item => item}
+          ItemSeparatorComponent={Separator}
         />
-      )}
-      keyExtractor={item => item}
-      ItemSeparatorComponent={Separator}
-    />
-  </View>
-);
+      </View>
+    );
+  }
 
-handlePress = () => {};
-
-export default CurrencyList;
+  handlePress = () => {
+    const { navigation } = this.props;
+    navigation.goBack(null);
+  };
+}
